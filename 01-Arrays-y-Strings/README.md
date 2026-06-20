@@ -20,3 +20,12 @@ Acá guardo los patrones lógicos para manipular cadenas de texto y arreglos.
 * **Patrón usado:** Búsqueda de Máximos y Transformación de Arrays (`.map()`)
 * **¿Cómo lo resolví?** 1. Primero, encontré el valor máximo actual del array original usando `Math.max(...candies)` junto con el operador spread (`...`) para desestructurar los números y que la función pueda leerlos.
   2. Luego, utilicé el método de los arrays `.map()` para iterar sobre cada elemento. A cada `caramelo` le sumé los `extraCandies` y evalué con una condición lógica si el resultado era `>=` al máximo encontrado en el paso anterior. `.map()` se encarga de devolver automáticamente el nuevo array estructurado con los booleanos (`true` o `false`).
+
+## 4. Ejercicio: Can Place Flowers
+
+* **Link:** [605. Can Place Flowers](https://leetcode.com/problems/can-place-flowers/)
+* **Patrón usado:** Iteración de Arrays / Lógica Condicional (Greedy Approach)
+* **¿Cómo lo resolví?:** 1. Usé un bucle `for` para iterar sobre el array `flowerbed` evaluando cada posición. 
+  2. Para evitar errores al revisar los bordes del array (índices que no existen y devuelven `undefined`), creé dos variables lógicas (`emptyLeft` y `emptyRight`). Estas evalúan como `true` si la posición adyacente es `0` **o** si estamos exactamente en uno de los extremos del array (`i === 0` o `i === flowerbed.length - 1`).
+  3. Si la posición actual es `0` y ambos lados están libres (`emptyLeft && emptyRight`), "planto" la flor actualizando `flowerbed[i] = 1` y le resto `1` a mi variable `n`. 
+  4. Al finalizar el bucle, retorno el resultado de evaluar si `n <= 0`, lo que confirma que logré plantar todas las flores pedidas.
